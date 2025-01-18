@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import "../styles/Modal.css";
 
 const AddProductModal = ({ isOpen, onClose, onConfirm }) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState('');   // Стейти для полів товару, потрібні для перевірки чи все заповнено, аби не можна було додати порожній товар
   const [count, setCount] = useState('');
   const [width, setWidth] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
 
-  const isFormValid = () => {
+  const isFormValid = () => {         // Перевірка, чи всі поля заповнені
     return name && count && width && height && weight;
   };
 
   const handleConfirm = () => {
     if (isFormValid()) {
         const newProduct = {
-          imageUrl: "https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg",
+          imageUrl: "https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg",    // Зображення по дефолту
           name,
           count: parseInt(count, 10),
           size: {
@@ -81,7 +81,7 @@ const AddProductModal = ({ isOpen, onClose, onConfirm }) => {
             />
             
             <div className='modal-controls'>
-                <button onClick={handleConfirm} disabled={!isFormValid()}>Confirm</button>
+                <button onClick={handleConfirm} disabled={!isFormValid()}>Confirm</button>    {/* Кнопка неактивна, якщо не всі поля заповнені */}
                 <button onClick={onClose}>Cancel</button>
             </div>
         </div>

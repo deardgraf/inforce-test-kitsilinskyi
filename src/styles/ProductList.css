@@ -8,13 +8,43 @@
     align-items: center;
 }
 
-.addButton {
+.add-button {
     width: 100px;
     height: 30px;
     margin: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .product {
     margin-top: 30px;
+}
+
+.products-table {
+    margin: 20px;
+    width: 700px;
+}
+
+.products-table th:nth-child(1) {
+    width: 120px;
+    align-content: center;
+}
+
+.products-table th:nth-child(2) {
+    cursor: pointer;
+}
+.products-table th:nth-child(3) {
+    cursor: pointer;
+}
+
+.products-table th {
+    text-align: left;
+    font-size: 18px;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
 }
