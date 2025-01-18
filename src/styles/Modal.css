@@ -1,0 +1,47 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.modal-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.modal-content input {
+    height: 20px;
+    width: 200px;
+    
+    border-radius: 5px;
+}
+
+.size {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.size input {
+    width: 80px;
+}
+
+.modal-controls button {
+    width: 85px;
+    height: 30px;
+    border-radius: 5px;
+}

@@ -1,0 +1,43 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "imageUrl": "https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg",
+            "name": "Product 1",
+            "count": 5,
+            "size": {
+              "width": 200,
+              "height": 200
+            },
+            "weight": "200g",
+            "comments": [1, 2]
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg",
+            "name": "Product 2",
+            "count": 10,
+            "size": {
+              "width": 300,
+              "height": 300
+            },
+            "weight": "300g",
+            "comments": []
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "productId": 1,
+            "description": "comment 1",
+            "date": "12:20 18.01.2025"
+        },
+        {
+            "id": 2,
+            "productId": 1,
+            "description": "comment 2",
+            "date": "12:53 18.01.2025"
+        }
+    ]
+  }
+  
