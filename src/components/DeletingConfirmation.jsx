@@ -8,7 +8,12 @@ const DeletingConfirmation = ({ isOpen, onClose, onConfirm }) => {
     return (
         <div className='modal'>
             <div className='modal-content'> 
-                <input type="checkbox" oonChange={(e) => setIsConfChecked(e.target.checked)}>Are you sure you want to delete?</input>       
+                <input 
+                    type="checkbox" 
+                    onChange={(e) => setIsConfChecked(e.target.checked)} 
+                    id="confirmDelete" 
+                />
+                <label htmlFor="confirmDelete">Are you sure you want to delete?</label>      
                 <div className='modal-controls'>
                     <button onClick={onConfirm} disabled={!isConfChecked}>Confirm</button>
                     <button onClick={onClose}>Cancel</button>

@@ -45,18 +45,21 @@ const ProductList = ({ products }) => {
     };
 
     const handleConfirmDelete = async(productToDeleteId) => {
-        const response = await fetch(`http://localhost:5000/products/${productToDeleteId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-    
-        if (response.ok) {
-            alert('Product deleted');
-            setIsDeletingConfirmationOpen(false);
-        } else {
-            console.log('Failed to delete the product');
+        if (productToDeleteId) { 
+            console.log (productToDeleteId);
+            const response = await fetch(`http://localhost:5000/products/${productToDeleteId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+        
+            if (response.ok) {
+                alert('Product deleted');
+                setIsDeletingConfirmationOpen(false);
+            } else {
+                console.log('Failed to delete the product');
+            }
         }
     };
 
@@ -107,7 +110,7 @@ const ProductList = ({ products }) => {
                             <td>{product.count}</td>
                             <td><Link to={`/product/${product.id}`}>View Details</Link></td>
                             <td>
-                                <button className='delete-button' >X</button>  {/*  onClick={() => handleDeleteClick(product.id)} */}
+                                <button className='delete-button' onClick={() => handleDeleteClick(product.id)}>X</button>  {/*   */}
                             </td>
                         </tr>
                     ))}
@@ -123,7 +126,7 @@ const ProductList = ({ products }) => {
             <DeletingConfirmation 
                 isOpen={isDeletingConfirmationOpen} 
                 onClose={handleCloseDelete} 
-                onConfirm={handleConfirmDelete(productToDeleteId)} 
+                onConfirm={() => handleConfirmDelete(productToDeleteId)}
             />
 
         </div>
