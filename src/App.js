@@ -10,13 +10,13 @@ const App = () => {
   const [comments, setComments] = useState([]);
 
   const fetchProducts = async () => {
-    const response = await fetch('http://localhost:3000/products');
+    const response = await fetch('http://localhost:5000/products');
     const data = await response.json();
     setProducts(data);
   };
 
   const fetchComments = async () => {
-    const response = await fetch('http://localhost:3000/comments');
+    const response = await fetch('http://localhost:5000/comments');
     const data = await response.json();
     setComments(data);
   };

@@ -14,9 +14,21 @@ const ProductList = ({ products }) => {
         setIsAddProductModalOpen(false);
     };
 
-    const handleConfirmAdd = () => {
-        console.log('Product added');
-        setIsAddProductModalOpen(false);
+    const handleConfirmAdd = async (newProduct) => {
+        const response = await fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newProduct),
+        });
+    
+        if (response.ok) {
+            console.log('Product added');
+            setIsAddProductModalOpen(false);
+        } else {
+            console.error('Failed to add product');
+        }
     };
 
     return (

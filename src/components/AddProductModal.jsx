@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Modal.css";
 
 const AddProductModal = ({ isOpen, onClose, onConfirm }) => {
+  const [name, setName] = useState('');
+  const [count, setCount] = useState('');
+  const [width, setWidth] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+
+  const isFormValid = () => {
+    return name && count && width && height && weight;
+  };
+
+  const handleConfirm = () => {
+    if (isFormValid()) {
+        const newProduct = {
+          imageUrl: "https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg",
+          name,
+          count: parseInt(count, 10),
+          size: {
+            width: parseInt(width, 10),
+            height: parseInt(height, 10),
+          },
+          weight: parseInt(weight,10)+'g',
+        };
+        onConfirm(newProduct);
+        setName('');
+        setCount('');
+        setWidth('');
+        setHeight('');
+        setWeight('');
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -10,23 +41,47 @@ const AddProductModal = ({ isOpen, onClose, onConfirm }) => {
             <h2>Add Product</h2>
 
             <p>Name</p>
-            <input type="text" />
+            <input type="text" 
+                value={name}
+                onChange={(e) => setName(e.target.value)} 
+                required
+            />
 
             <p>Count</p>
-            <input type="text" />
-            
+            <input 
+                type="number" min="1"
+                value={count} 
+                onChange={(e) => setCount(e.target.value)} 
+                required
+            />
+
             <p>Size</p>
             <div className='size'>
-                <input type="text" />
+                <input 
+                    type="number" min="1"
+                    value={width} 
+                    onChange={(e) => setWidth(e.target.value)} 
+                    required 
+                />
                 <p>x</p>
-                <input type="text" />
+                <input 
+                    type="number" min="1"
+                    value={height} 
+                    onChange={(e) => setHeight(e.target.value)} 
+                    required 
+                />
             </div>
 
             <p>Weight</p>
-            <input type="text" />
+            <input 
+                type="number" min="1"
+                value={weight} 
+                onChange={(e) => setWeight(e.target.value)} 
+                required 
+            />
             
             <div className='modal-controls'>
-                <button onClick={onConfirm}>Confirm</button>
+                <button onClick={handleConfirm} disabled={!isFormValid()}>Confirm</button>
                 <button onClick={onClose}>Cancel</button>
             </div>
         </div>
